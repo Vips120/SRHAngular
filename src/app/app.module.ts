@@ -7,13 +7,19 @@ import { Courses } from "./courses";
 import {StarComponent } from "./star.component";
 import { ParentComponent } from './parent.component';
 import { ChildComponent } from './child.component';
+import { HeartComponent } from './heart.component';
+import { ProductComponent } from './product.component';
+import { CustomPipe } from './custom.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
     StarComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    HeartComponent,
+    ProductComponent,
+    CustomPipe
   ],
   imports: [
     BrowserModule
