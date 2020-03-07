@@ -1,0 +1,55 @@
+<div class="template_Form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form [formGroup]="userRegister" (ngSubmit)="Save(userRegister)">
+                   <div class="form-group">
+                       <input type="text" placeholder="enter username" class="form-control"
+                       formControlName="username"
+                       >
+                       <div *ngIf="userRegister.controls.username.errors && userRegister.controls.username.touched">
+            <div class="alert alert-danger"
+             *ngIf="userRegister.controls.username.errors.required"
+            >
+          username is required*
+            </div>
+            <div class="alert alert-danger"
+            *ngIf="userRegister.controls.username.errors.minlength"
+           >
+         username must be a 5 characters*
+           </div>
+
+                       </div>
+                   </div> 
+
+                   <div class="form-group">
+                    <input type="text" placeholder="enter userid" class="form-control"
+                     formControlName="userid"
+           
+                    >
+               
+                </div> 
+                <div formGroupName="UserLogin">
+                    <div class="form-group">
+                        <input type="email" placeholder="enter emailid" class="form-control"
+                        formControlName="emailid"
+                        >
+              
+                    </div> 
+                    <div class="form-group">
+                        <input type="password" placeholder="enter password" class="form-control"
+                      formControlName="password"
+                        >
+               
+                    </div> 
+                </div>
+              
+
+                <button type="submit" class="btn btn-danger btn-md">
+                    SUBMIT
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

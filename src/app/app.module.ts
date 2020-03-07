@@ -10,6 +10,9 @@ import { ChildComponent } from './child.component';
 import { HeartComponent } from './heart.component';
 import { ProductComponent } from './product.component';
 import { CustomPipe } from './custom.pipe';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +22,14 @@ import { CustomPipe } from './custom.pipe';
     ChildComponent,
     HeartComponent,
     ProductComponent,
-    CustomPipe
+    CustomPipe,
+    TemplateFormComponent,
+    ReactiveformComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [Courses],
   bootstrap: [AppComponent]

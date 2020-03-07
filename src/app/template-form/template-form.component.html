@@ -1,0 +1,84 @@
+<div class="template_Form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form #F="ngForm" (ngSubmit)="Save(F)">
+                   <div class="form-group">
+                       <input type="text" placeholder="enter firstname" class="form-control"
+                        name="firstname"
+                        required
+                        minlength="5"
+                        [(ngModel)]="model.firstname"
+                        #firstname="ngModel"
+                       >
+                       <!-- {{model.firstname}} -->
+                       <div *ngIf="firstname.errors && firstname.touched">
+                           {{firstname.errors | json}}
+                             <div class="alert alert-danger" 
+                              *ngIf="firstname.errors.required"
+                             >
+                             first name is required*
+                             </div>
+                             <div class="alert alert-danger" 
+                             *ngIf="firstname.errors.minlength"
+                            >
+                            firstname must be a {{firstname.errors.minlength.requiredLength}} characters*
+                            </div>
+                       </div>
+                   </div> 
+
+                   <div class="form-group">
+                    <input type="text" placeholder="enter lastname" class="form-control"
+                      name="lastname"
+                      [(ngModel)]="model.lastname"
+                      #lastname="ngModel"
+                      required
+                    >
+                    <div *ngIf="lastname.errors && lastname.touched">
+                        <div class="alert alert-danger"
+                        *ngIf="lastname.errors.required"
+                        >
+                              lastname is required*
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <input type="email" placeholder="enter email" class="form-control"
+                     name="email"
+                     [(ngModel)]="model.email"
+                     #email="ngModel"
+                    >
+                    <div *ngIf="email.errors && email.touched">
+                        <div class="alert alert-danger"
+                        *ngIf="email.errors.required"
+                        >
+                              email is required*
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <input type="password" placeholder="enter password" class="form-control"
+                     name="password"
+                     [(ngModel)]="model.password"
+                     #password="ngModel"
+                    >
+                    <div *ngIf="password.errors && password.touched">
+                        <div class="alert alert-danger"
+                        *ngIf="password.errors.required"
+                        >
+                              password is required*
+                        </div>
+                    </div>
+                </div> 
+
+                <button type="submit" class="btn btn-danger btn-md">
+                    SUBMIT
+                </button>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
