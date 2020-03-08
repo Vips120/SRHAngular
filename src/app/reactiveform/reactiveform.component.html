@@ -2,10 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <form [formGroup]="userRegister" (ngSubmit)="Save(userRegister)">
+                <form [formGroup]="userRegister" (ngSubmit)="Save(userRegister.value)">
                    <div class="form-group">
                        <input type="text" placeholder="enter username" class="form-control"
                        formControlName="username"
+                       [class.is-invalid]="!userRegister.controls.username.valid && submitted"
+                       [class.is-valid]="userRegister.controls.username.valid"
                        >
                        <div *ngIf="userRegister.controls.username.errors && userRegister.controls.username.touched">
             <div class="alert alert-danger"
@@ -25,27 +27,54 @@
                    <div class="form-group">
                     <input type="text" placeholder="enter userid" class="form-control"
                      formControlName="userid"
-           
+                     [class.is-invalid]="!userRegister.controls.userid.valid && userRegister.controls.userid.touched"
+                     [class.is-valid]="userRegister.controls.userid.valid"
                     >
+                    <div *ngIf="userRegister.controls.userid.errors && userRegister.controls.userid.touched">
+                        <div class="alert alert-danger"
+                        *ngIf="userRegister.controls.userid.errors.required"
+                       >
+                     userid is required*
+                       </div>
+                    </div> 
                
                 </div> 
                 <div formGroupName="UserLogin">
                     <div class="form-group">
                         <input type="email" placeholder="enter emailid" class="form-control"
                         formControlName="emailid"
+                        [class.is-invalid]="!userRegister.controls.UserLogin.controls.emailid.valid && userRegister.controls.UserLogin.controls.emailid.touched"
+                        [class.is-valid]="userRegister.controls.UserLogin.controls.emailid.valid"
                         >
+                        <div *ngIf="userRegister.controls.UserLogin.controls.emailid.errors && userRegister.controls.UserLogin.controls.emailid.touched">
+                            <div class="alert alert-danger"
+                            *ngIf="userRegister.controls.UserLogin.controls.emailid.errors.required"
+                           >
+                         email is required*
+                           </div>
+                        </div> 
               
                     </div> 
                     <div class="form-group">
                         <input type="password" placeholder="enter password" class="form-control"
                       formControlName="password"
+                      [class.is-invalid]="!userRegister.controls.UserLogin.controls.password.valid && userRegister.controls.UserLogin.controls.password.touched"
+                      [class.is-valid]="userRegister.controls.UserLogin.controls.password.valid"
                         >
-               
+                        <div *ngIf="userRegister.controls.UserLogin.controls.password.errors && userRegister.controls.UserLogin.controls.password.touched">
+                            <div class="alert alert-danger"
+                            *ngIf="userRegister.controls.UserLogin.controls.password.errors.required"
+                           >
+                         password is required*
+                           </div>
+                        </div> 
                     </div> 
                 </div>
               
 
-                <button type="submit" class="btn btn-danger btn-md">
+                <button type="submit" class="btn btn-danger btn-md"
+             
+                >
                     SUBMIT
                 </button>
                 </form>

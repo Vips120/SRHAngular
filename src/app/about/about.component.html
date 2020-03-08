@@ -1,0 +1,12 @@
+<p>about works!</p>
+
+<a routerLink="about1">about1</a>
+<a routerLink="about2">about2</a>
+
+<ul *ngFor="let user of users">
+<li><a routerLink="/about3/{{user.id}}">
+    {{user.name}}
+
+</a></li>
+</ul>
+<router-outlet></router-outlet>
